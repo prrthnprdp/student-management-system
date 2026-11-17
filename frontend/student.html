@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Details | StudentHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="details">
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">S</span> StudentHub</div>
+    <nav aria-label="Main navigation">
+      <a class="nav-link active" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-link " href="add-student.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        Add Student
+      </a>
+    </nav>
+    <div class="sidebar-foot">Augnifyz Technologies<br>Internship project</div>
+  </aside>
+  <div class="sidebar-backdrop" id="backdrop"></div>
+  <div class="main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="page-title">StudentHub &ndash; Student Management System</span>
+        <div class="topbar-right"><span class="admin-name">Administrator</span><span class="avatar">A</span></div>
+      </header>
+    <main class="content">
+      <div class="page-head">
+        <div>
+          <h2>Student Details</h2>
+          <p>Complete record for this student.</p>
+        </div>
+        <a class="btn btn-outline" href="index.html">Back to dashboard</a>
+      </div>
+
+      <div class="loading-state panel" id="detailsLoading">Loading student&hellip;</div>
+
+      <section class="panel profile" id="profile" hidden>
+        <div class="profile-top">
+          <div class="profile-avatar" id="pInitial"></div>
+          <div>
+            <h2 id="pName"></h2>
+            <p><span id="pStudentId"></span></p>
+          </div>
+          <div class="profile-actions">
+            <a class="btn btn-primary" id="editBtn" href="#">Edit student</a>
+          </div>
+        </div>
+        <dl class="detail-grid">
+          <div><dt>Student ID</dt><dd id="dStudentId"></dd></div>
+          <div><dt>Full name</dt><dd id="dName"></dd></div>
+          <div><dt>Email</dt><dd id="dEmail"></dd></div>
+          <div><dt>Phone</dt><dd id="dPhone"></dd></div>
+          <div><dt>Department</dt><dd id="dDepartment"></dd></div>
+          <div><dt>Semester</dt><dd id="dSemester"></dd></div>
+          <div><dt>Gender</dt><dd id="dGender"></dd></div>
+          <div><dt>Date of birth</dt><dd id="dDob"></dd></div>
+          <div class="full"><dt>Address</dt><dd id="dAddress"></dd></div>
+          <div class="full"><dt>Created on</dt><dd id="dCreated"></dd></div>
+        </dl>
+      </section>
+    </main>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

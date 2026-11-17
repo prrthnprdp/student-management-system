@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Student | StudentHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="form">
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">S</span> StudentHub</div>
+    <nav aria-label="Main navigation">
+      <a class="nav-link " href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-link active" href="add-student.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        Add Student
+      </a>
+    </nav>
+    <div class="sidebar-foot">Augnifyz Technologies<br>Internship project</div>
+  </aside>
+  <div class="sidebar-backdrop" id="backdrop"></div>
+  <div class="main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="page-title">StudentHub &ndash; Student Management System</span>
+        <div class="topbar-right"><span class="admin-name">Administrator</span><span class="avatar">A</span></div>
+      </header>
+    <main class="content">
+      <div class="page-head">
+        <div>
+          <h2 id="formTitle">Add Student</h2>
+          <p id="formSubtitle">Fill in the details below. Fields marked * are required.</p>
+        </div>
+        <a class="btn btn-outline" href="index.html">Back to dashboard</a>
+      </div>
+
+      <form class="panel form-card" id="studentForm" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="student_id">Student ID <span class="req">*</span></label>
+            <input id="student_id" name="student_id" maxlength="20" placeholder="e.g. CSE2024001">
+            <p class="field-error" data-error-for="student_id"></p>
+          </div>
+          <div class="field">
+            <label for="name">Full name <span class="req">*</span></label>
+            <input id="name" name="name" maxlength="100" placeholder="e.g. Anjali Menon">
+            <p class="field-error" data-error-for="name"></p>
+          </div>
+          <div class="field">
+            <label for="email">Email <span class="req">*</span></label>
+            <input id="email" name="email" type="email" maxlength="100" placeholder="name@example.com">
+            <p class="field-error" data-error-for="email"></p>
+          </div>
+          <div class="field">
+            <label for="phone">Phone <span class="req">*</span></label>
+            <input id="phone" name="phone" type="tel" maxlength="15" placeholder="10-digit mobile number">
+            <p class="field-error" data-error-for="phone"></p>
+          </div>
+          <div class="field">
+            <label for="department">Department <span class="req">*</span></label>
+            <select id="department" name="department">
+              <option value="">Select department</option>
+              <option>CSE</option><option>ECE</option><option>EEE</option>
+              <option>IT</option><option>Mechanical</option><option>Civil</option>
+            </select>
+            <p class="field-error" data-error-for="department"></p>
+          </div>
+          <div class="field">
+            <label for="semester">Semester <span class="req">*</span></label>
+            <select id="semester" name="semester">
+              <option value="">Select semester</option>
+              <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option>
+              <option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option>
+            </select>
+            <p class="field-error" data-error-for="semester"></p>
+          </div>
+          <div class="field">
+            <label for="gender">Gender <span class="req">*</span></label>
+            <select id="gender" name="gender">
+              <option value="">Select gender</option>
+              <option>Male</option><option>Female</option><option>Other</option>
+            </select>
+            <p class="field-error" data-error-for="gender"></p>
+          </div>
+          <div class="field">
+            <label for="dob">Date of birth <span class="req">*</span></label>
+            <input id="dob" name="dob" type="date">
+            <p class="field-error" data-error-for="dob"></p>
+          </div>
+          <div class="field full">
+            <label for="address">Address <span class="req">*</span></label>
+            <textarea id="address" name="address" placeholder="House name, street, city"></textarea>
+            <p class="field-error" data-error-for="address"></p>
+          </div>
+        </div>
+        <div class="form-actions">
+          <button class="btn btn-primary" type="submit" id="submitBtn">Save student</button>
+          <a class="btn btn-outline" href="index.html">Cancel</a>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

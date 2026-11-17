@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | StudentHub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="dashboard">
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand"><span class="brand-mark">S</span> StudentHub</div>
+    <nav aria-label="Main navigation">
+      <a class="nav-link active" href="index.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+        Dashboard
+      </a>
+      <a class="nav-link " href="add-student.html">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+        Add Student
+      </a>
+    </nav>
+    <div class="sidebar-foot">Augnifyz Technologies<br>Internship project</div>
+  </aside>
+  <div class="sidebar-backdrop" id="backdrop"></div>
+  <div class="main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+        <span class="page-title">StudentHub &ndash; Student Management System</span>
+        <div class="topbar-right"><span class="admin-name">Administrator</span><span class="avatar">A</span></div>
+      </header>
+    <main class="content">
+      <div class="page-head">
+        <div>
+          <h2>Dashboard</h2>
+          <p>Manage student records, search and filter in one place.</p>
+        </div>
+        <a class="btn btn-primary" href="add-student.html">+ Add Student</a>
+      </div>
+
+      <!-- Statistics (filled by script.js from the database) -->
+      <section class="stats" aria-label="Statistics">
+        <div class="stat-card"><div class="stat-icon teal">All</div><div><div class="stat-value" id="statTotal">-</div><div class="stat-label">Total Students</div></div></div>
+        <div class="stat-card"><div class="stat-icon amber">CSE</div><div><div class="stat-value" id="statCse">-</div><div class="stat-label">CSE Students</div></div></div>
+        <div class="stat-card"><div class="stat-icon violet">ECE</div><div><div class="stat-value" id="statEce">-</div><div class="stat-label">ECE Students</div></div></div>
+        <div class="stat-card"><div class="stat-icon rose" id="statSemIcon">S</div><div><div class="stat-value" id="statSem">-</div><div class="stat-label" id="statSemLabel">Current Semester Students</div></div></div>
+      </section>
+
+      <section class="panel" aria-label="Student records">
+        <div class="toolbar">
+          <input class="search" type="search" id="searchInput" placeholder="Search by Student ID, name or email" aria-label="Search students">
+          <select id="deptFilter" aria-label="Filter by department">
+            <option value="">All departments</option>
+            <option>CSE</option><option>ECE</option><option>EEE</option>
+            <option>IT</option><option>Mechanical</option><option>Civil</option>
+          </select>
+          <select id="semFilter" aria-label="Filter by semester">
+            <option value="">All semesters</option>
+            <option value="1">Semester 1</option><option value="2">Semester 2</option>
+            <option value="3">Semester 3</option><option value="4">Semester 4</option>
+            <option value="5">Semester 5</option><option value="6">Semester 6</option>
+            <option value="7">Semester 7</option><option value="8">Semester 8</option>
+          </select>
+          <button class="btn btn-outline" id="clearFilters" type="button">Clear</button>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Student ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Department</th><th>Semester</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="studentTable"></tbody>
+          </table>
+        </div>
+
+        <div class="loading-state" id="loadingState">Loading students&hellip;</div>
+        <div class="empty-state" id="emptyState" hidden>
+          <h3>No students found</h3>
+          <p id="emptyText">Add your first student to get started.</p>
+          <a class="btn btn-primary" href="add-student.html">+ Add Student</a>
+        </div>
+        <div class="table-foot" id="resultCount"></div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal-backdrop" id="deleteModal" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="deleteTitle">
+    <h3 id="deleteTitle">Delete student</h3>
+    <p>Are you sure you want to delete this student?<br><strong id="deleteName"></strong></p>
+    <div class="modal-actions">
+      <button class="btn btn-outline" id="cancelDelete" type="button">Cancel</button>
+      <button class="btn btn-danger" id="confirmDelete" type="button">Delete</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
